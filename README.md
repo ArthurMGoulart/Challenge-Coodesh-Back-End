@@ -3,28 +3,20 @@ Back-end Challenge 🏅 2021 - Space Flight News Node.js
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Simple API
-  description: A simple API to illustrate OpenAPI concepts
+  title: Space Flight CRUD API
+  description: A POO Mongoose CRUD API, that implements a Cron Job to populate database with external data. 
 
 servers:
-  - url: https://example.io/v1
-
-components:
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
-security:
-  - BasicAuth: []
+  - url: https://coodesh-space-flight.herokuapp.com/
 
 paths:
-  /artists:
+  /articles:
     get:
-      description: Returns a list of artists 
+      description: Returns a list of articles 
       #  ----- Added lines  ----------------------------------------
       responses:
         '200':
-          description: Successfully returned a list of artists
+          description: Successfully returned a list of articles
           content:
             application/json:
               schema:
