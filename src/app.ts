@@ -15,6 +15,7 @@ class App {
       PORT,
       () => console.log(`Server running here 👉 http://localhost:${PORT}`),
     );
+    this.app.get('/', (req, res) => res.status(200).send('Back-end Challenge 2021 🏅 - Space Flight News'));
   }
 
   public addRouter(router: Router) {
