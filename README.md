@@ -23,25 +23,23 @@ paths:
                 type: array
                 items:
                   type: object
-                  required:
-                    - username
                   properties:
-                    artist_name:
+                    featured:
                       type: string
-                    artist_genre:
+                    title:
                       type: string
-                    albums_recorded:
-                      type: integer
-                    username:
+                    url:
                       type: string
-
-        '400':
-          description: Invalid request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:   
-                  message:
-                    type: string
+                    imageUrl:
+                      type: string
+                    newSite:
+                      type: string
+                    summary:
+                      type: string
+                    publishedAt:
+                      type: string
+                    launches:
+                      type: array[object]
+                    events:
+                      type: array[object]  
       #  ---- /Added lines  ----------------------------------------
