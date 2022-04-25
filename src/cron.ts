@@ -1,9 +1,10 @@
 import cron from "node-cron";
-import shell from "shelljs";
+import getArticlesFromApi from "./spaceFlightNews";
 
 const setCron = () => {
-  cron.schedule('0 9 * * *', () => {
-    shell.exec('npm run seed');
+  cron.schedule('0 9 * * *', getArticlesFromApi, {
+    scheduled: true,
+    timezone: "America/Sao_Paulo"
   });
 }
 
