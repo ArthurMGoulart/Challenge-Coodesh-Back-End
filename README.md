@@ -13,7 +13,6 @@ paths:
   /articles:
     get:
       description: Returns a list of articles 
-      #  ----- Added lines  ----------------------------------------
       responses:
         '200':
           description: Successfully returned a list of articles
@@ -42,4 +41,3 @@ paths:
                       type: array[object]
                     events:
                       type: array[object]  
-      #  ---- Added lines  ----------------------------------------
