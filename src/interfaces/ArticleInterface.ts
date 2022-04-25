@@ -1,12 +1,6 @@
 import { z } from 'zod';
 
 const ArticleSchema = z.object({
-  id: z.number({
-    required_error: 'id is required',
-    invalid_type_error: 'id must be a number', 
-  }).int({
-    message: 'id must be an integer'
-  }),
   featured: z.boolean({
     required_error: 'featured is required',
     invalid_type_error: 'featured must be a number',
