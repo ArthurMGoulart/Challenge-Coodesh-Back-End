@@ -29,7 +29,8 @@ class ArticleService extends Service<Article> {
   };
 
   delete = async (id: string): Promise<Article | ServiceError | null> => {
-    return this.model.delete(id);
+    const articleDeleted = this.model.delete(id);
+    return articleDeleted;
   };
 }
 
