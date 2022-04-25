@@ -42,4 +42,4 @@ paths:
                       type: array[object]
                     events:
                       type: array[object]  
-      #  ---- /Added lines  ----------------------------------------
+      #  ---- Added lines  ----------------------------------------
