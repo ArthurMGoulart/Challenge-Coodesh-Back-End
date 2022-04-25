@@ -1,11 +1,13 @@
-FROM node:16-alpine
+FROM node:alpine
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json .
 
 RUN npm install
 
 COPY . .
 
-ENTRYPOINT ["npm", "start"]
+RUN tsc
+
+CMD ["node", "./dist/src/index.js"]
