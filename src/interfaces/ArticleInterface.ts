@@ -3,11 +3,11 @@ import { z } from 'zod';
 const ArticleSchema = z.object({
   id: z.number({
     required_error: 'id is required',
-    invalid_type_error: 'id must be a string', 
+    invalid_type_error: 'id must be a number', 
   }),
   featured: z.boolean({
     required_error: 'featured is required',
-    invalid_type_error: 'featured must be a number',
+    invalid_type_error: 'featured must be a boolean',
   }).default(false),
   title: z.string({
     required_error: 'title is required',
@@ -33,26 +33,8 @@ const ArticleSchema = z.object({
     required_error: 'publishedAt is required',
     invalid_type_error: 'publishedAt must be a string', 
   }),
-  launches: z.object({
-    id: z.string({
-      required_error: 'id is required',
-      invalid_type_error: 'id must be a string', 
-    }),
-    provider: z.string({
-      required_error: 'provider is required',
-      invalid_type_error: 'provider must be a string', 
-    }),
-  }).array(),
-  events: z.object({
-    id: z.string({
-      required_error: 'id is required',
-      invalid_type_error: 'id must be a string', 
-    }),
-    provider: z.string({
-      required_error: 'id is required',
-      invalid_type_error: 'id must be a string', 
-    }),
-  }).array(),
+  launches: z.object({}).array(),
+  events: z.object({}).array(),
 });
 
 export type Article = z.infer<typeof ArticleSchema>;

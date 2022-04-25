@@ -1,7 +1,6 @@
 import server from './server';
-
-import getArticlesFromApi from './spaceFlightNews';
+import setCron from './cron';
 
 server.startServer();
 
-getArticlesFromApi();
+setCron();

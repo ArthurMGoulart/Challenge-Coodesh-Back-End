@@ -9,7 +9,7 @@ const getArticlesFromApi = async () => {
       await axios.post('http://localhost:3001/articles', article);
     } catch (e) {
       const axiosError = e as AxiosError;
-      console.log(axiosError.response?.data)
+      console.log(axiosError.response?.data.error)
     }
   });
 }
