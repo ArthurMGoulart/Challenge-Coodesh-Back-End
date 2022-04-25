@@ -1,0 +1,35 @@
+{
+  "name": "challenge-coodesh-back-end",
+  "version": "1.0.0",
+  "description": "Challenge Coodesh Back End (Node.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurMGoulart/Challenge-Coodesh-Back-End.git"
+  },
+  "author": "Budi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurMGoulart/Challenge-Coodesh-Back-End/issues"
+  },
+  "homepage": "https://github.com/ArthurMGoulart/Challenge-Coodesh-Back-End#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.14.0",
+    "jest": "^27.5.1",
+    "mocha": "^9.2.2",
+    "sinon": "^13.0.2",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.3.1",
+    "zod": "^3.14.4"
+  }
+}
