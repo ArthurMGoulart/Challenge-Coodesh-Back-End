@@ -1,10 +1,8 @@
-import { Schema, model as createModel, Document } from 'mongoose';
+import { Schema, model as createModel } from 'mongoose';
 import { Article } from '../interfaces/ArticleInterface';
 import MongoModel from './MongoModel';
 
-export interface ArticleDocument extends Article, Document { }
-
-export const ArticleSchema = new Schema<ArticleDocument>(
+export const ArticleSchema = new Schema<Article>(
   {
     id: { type: Number, required: true },
     featured: { type: Boolean, required: true },

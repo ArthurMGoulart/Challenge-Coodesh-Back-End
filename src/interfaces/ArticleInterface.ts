@@ -1,6 +1,10 @@
 import { z } from 'zod';
 
 const ArticleSchema = z.object({
+  id: z.number({
+    required_error: 'id is required',
+    invalid_type_error: 'id must be a string', 
+  }),
   featured: z.boolean({
     required_error: 'featured is required',
     invalid_type_error: 'featured must be a number',
@@ -31,22 +35,22 @@ const ArticleSchema = z.object({
   }),
   launches: z.object({
     id: z.string({
-      required_error: 'publishedAt is required',
-      invalid_type_error: 'publishedAt must be a string', 
+      required_error: 'id is required',
+      invalid_type_error: 'id must be a string', 
     }),
     provider: z.string({
-      required_error: 'publishedAt is required',
-      invalid_type_error: 'publishedAt must be a string', 
+      required_error: 'provider is required',
+      invalid_type_error: 'provider must be a string', 
     }),
   }).array(),
   events: z.object({
     id: z.string({
-      required_error: 'publishedAt is required',
-      invalid_type_error: 'publishedAt must be a string', 
+      required_error: 'id is required',
+      invalid_type_error: 'id must be a string', 
     }),
     provider: z.string({
-      required_error: 'publishedAt is required',
-      invalid_type_error: 'publishedAt must be a string', 
+      required_error: 'id is required',
+      invalid_type_error: 'id must be a string', 
     }),
   }).array(),
 });

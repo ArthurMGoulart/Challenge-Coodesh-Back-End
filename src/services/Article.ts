@@ -12,6 +12,10 @@ class ArticleService extends Service<Article> {
     if (!parsedArticle.success) {
       return { error: parsedArticle.error };
     }
+    const articleFound = await this.model.readById(obj.id);
+    if (articleFound) {
+      return { error: 'Already in database'};
+    }
     return this.model.create(obj);
   };
 

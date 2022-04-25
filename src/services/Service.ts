@@ -1,11 +1,11 @@
 import { ZodError } from 'zod';
 import { Model } from '../interfaces/ModelInterface';
 
-export interface ServiceError {
-  error: ZodError;
+export interface ServiceError { 
+  error: ZodError | string;
 }
 
-abstract class Service<T> {
+abstract class Service<T> { 
   constructor(protected model: Model<T>) { }
 
   public async create(obj: T): Promise<T | null | ServiceError> {
@@ -14,6 +14,10 @@ abstract class Service<T> {
 
   public async read(): Promise<T[]> {
     return this.model.read();
+  }
+
+  public async readById(id: number): Promise<T | null | ServiceError> {
+    return this.model.readById(id);
   }
 
   public async readOne(id: string): Promise<T | null | ServiceError> {

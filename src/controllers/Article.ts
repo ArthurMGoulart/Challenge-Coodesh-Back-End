@@ -28,8 +28,8 @@ class ArticleController extends Controller<Article> {
     req: RequestWithBody<Article>,
     res: Response<Article | ResponseError>,
   ): Promise<typeof res> {
-    const { body } = req;
     try {
+      const { body } = req;
       const article = await this.service.create(body);
       if (!article) return res.status(500).json({ error: 'Null Created' });
       if ('error' in article) {
@@ -53,7 +53,7 @@ class ArticleController extends Controller<Article> {
       if (!article) return res.status(404).json({ error: 'Article not found' });
       if ('error' in article) {
         const { error } = article;
-        return res.status(400).json({ error: error.issues[0].message });
+        return res.status(400).json({ error });
       }
       return res.status(200).json(article);
     } catch (err) {
@@ -73,7 +73,7 @@ class ArticleController extends Controller<Article> {
       if (!article) return res.status(404).json({ error: 'Article not found' });
       if ('error' in article) {
         const { error } = article;
-        return res.status(400).json({ error: error.issues[0].message });
+        return res.status(400).json({ error });
       }
       return res.status(200).json(article);
     } catch (err) {
@@ -92,7 +92,7 @@ class ArticleController extends Controller<Article> {
       if ('error' in article) {
         const articleError = article as never;
         const { error } = articleError as ServiceError;
-        return res.status(400).json({ error: error.issues[0].message });
+        return res.status(400).json({ error });
       }
       return res.status(204).json(article);
     } catch (err) {
