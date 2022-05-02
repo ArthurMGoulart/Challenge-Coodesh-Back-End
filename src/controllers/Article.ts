@@ -43,6 +43,25 @@ class ArticleController extends Controller<Article> {
     }
   }
 
+  async read (
+    req: Request,
+    res: Response<Article[] | ResponseError>,
+  ): Promise<typeof res> {
+    try {
+      const page = req.query.page as unknown as string;
+      let articles;
+      if (!page) {
+        articles = await this.service.read();
+      } else {
+        articles = await this.service.read(parseInt(page, 10));
+      }
+      return res.status(200).json(articles);
+    } catch (err) {
+      const { message } = err as Error;
+      return res.status(500).json({ error: message });
+    }
+  }
+
   async readOne(
     req: Request,
     res: Response<Article | ResponseError>,

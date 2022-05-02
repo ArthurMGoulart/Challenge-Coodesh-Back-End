@@ -28,18 +28,10 @@ abstract class Controller<T> {
     res: Response<T | ResponseError>,
   ): Promise<typeof res>;
 
-  read = async (
+  abstract read (
     _req: Request,
     res: Response<T[] | ResponseError>,
-  ): Promise<typeof res> => {
-    try {
-      const objs = await this.service.read();
-      return res.status(200).json(objs);
-    } catch (err) {
-      const { message } = err as Error;
-      return res.status(500).json({ error: message });
-    }
-  };
+  ): Promise<typeof res>;
 
   abstract readOne(
     req: Request,

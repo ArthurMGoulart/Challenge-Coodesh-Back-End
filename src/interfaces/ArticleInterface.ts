@@ -28,7 +28,7 @@ const ArticleSchema = z.object({
   summary: z.string({
     required_error: 'summary is required',
     invalid_type_error: 'summary must be a string', 
-  }),
+  }).min(1),
   publishedAt: z.string({
     required_error: 'publishedAt is required',
     invalid_type_error: 'publishedAt must be a string', 

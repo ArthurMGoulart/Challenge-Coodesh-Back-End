@@ -12,8 +12,8 @@ abstract class Service<T> {
     return this.model.create(obj);
   }
 
-  public async read(): Promise<T[]> {
-    return this.model.read();
+  public async read(page = 0): Promise<T[]> {
+    return this.model.read(page);
   }
 
   public async readById(id: number): Promise<T | null | ServiceError> {
