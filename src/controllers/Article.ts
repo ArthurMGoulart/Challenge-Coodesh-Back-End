@@ -17,6 +17,7 @@ class ArticleController extends Controller<Article> {
     this.$route = route;
     this.service = service;
     this.create = this.create.bind(this);
+    this.read = this.read.bind(this);
     this.readOne = this.readOne.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
@@ -51,7 +52,7 @@ class ArticleController extends Controller<Article> {
       const page = req.query.page as unknown as string;
       let articles;
       if (!page) {
-        articles = await this.service.read();
+        articles = await this.service.read(undefined);
       } else {
         articles = await this.service.read(parseInt(page, 10));
       }

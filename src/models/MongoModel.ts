@@ -6,7 +6,10 @@ abstract class MongoModel<T> implements Model<T> {
 
   create = async (obj: T): Promise<T> => this.model.create({ ...obj });
 
-  read = async (page: number): Promise<T[]> => this.model.find().skip(page * 5).limit(5);
+  read = async (page: number | undefined): Promise<T[]> => {
+    if(!page) return this.model.find();
+    return this.model.find().skip(page * 5).limit(5);
+  }
 
   readById = async (id: number): Promise<T | null> => this.model.findOne({ id });
 

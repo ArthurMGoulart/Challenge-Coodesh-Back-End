@@ -12,7 +12,7 @@ abstract class Service<T> {
     return this.model.create(obj);
   }
 
-  public async read(page = 0): Promise<T[]> {
+  public async read(page: number | undefined): Promise<T[]> {
     return this.model.read(page);
   }
 
