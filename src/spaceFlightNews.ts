@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { Article } from './interfaces/ArticleInterface';
+import { Article } from './api/interfaces/ArticleInterface';
 
 const getArticlesFromApi = async () => {
   const { data } = await axios('https://api.spaceflightnewsapi.net/v3/articles');

@@ -32,7 +32,6 @@ class ArticleController extends Controller<Article> {
     try {
       const { body } = req;
       const article = await this.service.create(body);
-      if (!article) return res.status(500).json({ error: 'Null Created' });
       if ('error' in article) {
         const { error } = article;
         return res.status(400).json({ error });

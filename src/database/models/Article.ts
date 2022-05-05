@@ -1,5 +1,5 @@
 import { Schema, model as createModel } from 'mongoose';
-import { Article } from '../interfaces/ArticleInterface';
+import { Article } from '../../api/interfaces/ArticleInterface';
 import MongoModel from './MongoModel';
 
 export const ArticleSchema = new Schema<Article>(

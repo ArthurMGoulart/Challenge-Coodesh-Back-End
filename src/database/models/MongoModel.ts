@@ -1,5 +1,5 @@
 import { Model as M } from 'mongoose';
-import { Model } from '../interfaces/ModelInterface';
+import { Model } from '../../api/interfaces/ModelInterface';
 
 abstract class MongoModel<T> implements Model<T> {
   constructor(protected model: M<T>) { }

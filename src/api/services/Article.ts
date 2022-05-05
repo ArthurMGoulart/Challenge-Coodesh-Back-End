@@ -1,16 +1,16 @@
 import { Article, ArticleSchema } from '../interfaces/ArticleInterface';
 import Service, { ServiceError } from './Service';
-import ArticleModel from '../models/Article';
+import ArticleModel from '../../database/models/Article';
 
 class ArticleService extends Service<Article> {
   constructor(model = new ArticleModel()) {
     super(model);
   }
 
-  create = async (obj: Article): Promise<Article | ServiceError | null> => {
+  create = async (obj: Article): Promise<Article | ServiceError> => {
     const parsedArticle = ArticleSchema.safeParse(obj);
     if (!parsedArticle.success) {
-      return { error: parsedArticle.error };
+      return { error: parsedArticle.error.issues[0].message };
     }
     const articleFound = await this.model.readById(obj.id);
     if (articleFound) {
@@ -27,7 +27,7 @@ class ArticleService extends Service<Article> {
   update = async (id: string, obj: Article): Promise<Article | ServiceError | null> => {
     const parsedArticle = ArticleSchema.safeParse(obj);
     if (!parsedArticle.success) {
-      return { error: parsedArticle.error };
+      return { error: parsedArticle.error.issues[0].message };
     }
     return this.model.update(id, obj);
   };

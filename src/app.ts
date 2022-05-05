@@ -1,6 +1,6 @@
 import * as http from 'http';
 import express, { Router } from 'express';
-import connectToDatabase from './connection';
+import connectToDatabase from './database/connection';
 
 class App {
   public app: express.Application;

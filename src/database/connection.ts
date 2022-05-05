@@ -8,4 +8,3 @@ const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWOR
 const connectToDatabase = () => mongoose.connect(uri);
 
 export default connectToDatabase;
- 

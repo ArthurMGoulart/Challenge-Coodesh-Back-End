@@ -1,9 +1,9 @@
-import CustomRouter from './routes/CustomRouter';
+import CustomRouter from './api/routes/CustomRouter';
 import App from './app';
 
-import ArticleController from './controllers/Article';
+import ArticleController from './api/controllers/Article';
 
-import { Article } from './interfaces/ArticleInterface';
+import { Article } from './api/interfaces/ArticleInterface';
 
 const server = new App();
 
